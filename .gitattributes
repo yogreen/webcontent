@@ -15,3 +15,7 @@
 *.PDF	 diff=astextplain
 *.rtf	 diff=astextplain
 *.RTF	 diff=astextplain
+*.java	 diff=astextplain
+*.xml	 diff=astextplain
+*.xsd	 diff=astextplain
+*.properties	 diff=astextplain

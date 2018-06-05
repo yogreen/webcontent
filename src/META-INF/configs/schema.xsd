@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.websystem.xml/schema"
+	xmlns:tns="http://com.websystem.xml/schema" elementFormDefault="qualified">
+
+    <complexType name="hostType">
+   		 <simpleContent>
+      		 <extension base="string">
+    			<attribute name="master" type="boolean" default="false"/>
+    			<attribute name="port" type="int" default="0"/>
+    			<attribute name="name" type="string"/>
+       		</extension>
+   		 </simpleContent>
+   		
+    </complexType>
+    <element name="host" type="tns:hostType">
+       
+    </element>
+    <element name="multicast">
+       <complexType>
+         <attribute name="ip" type="string"></attribute>
+         <attribute name="port" type="int"></attribute>
+       </complexType>
+    </element>
+    <element name="naming">
+       <complexType>
+         <sequence>
+            <element ref="tns:host" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+       </complexType>
+       <unique name="namingUnique">
+       <selector xpath="tns:host"></selector>
+       <field xpath="@name"></field>
+       </unique>
+    </element>
+    <element name="entry">
+       <complexType>
+         <sequence>
+            <element ref="tns:host" minOccurs="1" maxOccurs="unbounded"/>
+         </sequence>
+         <attribute name="name" type="string" use="required"></attribute>
+       </complexType>
+       <unique name="hostUnique">
+       <selector xpath="tns:host"></selector>
+       <field xpath="@name"></field>
+       </unique>
+    </element>
+    <element name="servers">
+      <complexType>
+         <sequence>
+            <element ref="tns:multicast" minOccurs="0" maxOccurs="1"></element>
+            <element ref="tns:naming" minOccurs="0" maxOccurs="unbounded"></element>
+            <element ref="tns:entry" minOccurs="0" maxOccurs="unbounded"></element>
+         </sequence>
+      <attribute name="subject" type="string"/>
+      </complexType>
+      <unique name="entryUnique">
+       <selector xpath="tns:entry"></selector>
+       <field xpath="@name"></field>
+       </unique>
+    </element>
+    <element name="websystem">
+       <complexType>
+           <sequence>
+              <element ref="tns:servers" minOccurs="1" maxOccurs="unbounded"></element>
+           </sequence>
+       </complexType>
+       <unique name="serversUnique">
+       <selector xpath="tns:servers"></selector>
+       <field xpath="@subject"></field>
+       </unique>
+    </element>
+</schema>

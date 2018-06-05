@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<websystem xmlns="http://com.websystem.xml/schema" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://com.websystem.xml/schema schema.xsd ">
+	<servers subject="serviceMessage">
+		<multicast ip="231.0.0.1" port="5544" />
+		<naming>
+			<host master="true" name="n0Master" port="1973">192.168.1.105</host>
+			<host name="n0Master_tcp" port="1974">192.168.1.103</host>
+			<host name="n1" port="1974">192.168.1.105</host>
+			<host name="n1_tcp" port="1975">192.168.1.105</host>
+			<host name="n2Master" port="1976">192.168.1.103</host>
+			<host name="n2_tcp" port="1977">192.168.1.105</host>
+		</naming>
+		<entry name="com.websystem.service.instance.WebsytemComputeInstance">
+			<host master="true" name="eh0" port="3011">192.168.1.109</host>
+			<host name="eh0_tcp" port="3013">192.168.1.105</host>
+			<host name="eh1" port="3014">192.168.1.103</host>
+			<host name="eh1_tcp" port="3015">192.168.1.108</host>
+			<host name="eh2" port="3016">192.168.1.107</host>
+			<host name="eh3_tcp" port="3017">192.168.1.105</host>
+		</entry>
+		
+	</servers>
+
+</websystem>

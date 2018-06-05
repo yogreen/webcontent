@@ -1,0 +1,19 @@
+grant{
+  permission java.util.PropertyPermission "thirdparty_dir","read,write";
+  permission java.util.PropertyPermission "java.class.path","read,write";
+  permission java.io.FilePermission "F:\\netpaper\\workspace\\build\\workspace\\thirdparty\\-" ,"read";
+  permission java.io.FilePermission "F:\\netpaper\\workspace\\build\\workspace\\depends\\-" ,"read";
+};
+grant codeBase "file:/${thirdparty_dir}/-"{
+    permission java.io.FilePermission "${user.home}${/}-","read";
+    permission java.io.FilePermission "${user.dir}${/}-","read";
+    permission java.io.FilePermission "${java.class.path}${/}-","read";
+    permission java.io.FilePermission "F:\\netpaper\\workspace\\build\\workspace\\thirdparty\\-","read";
+    permission java.util.PropertyPermission "user.dir","read";
+    permission java.util.PropertyPermission "user.home","read";
+    permission java.util.PropertyPermission "java.class.path","read";
+    permission java.net.SocketPermission "*:1099-65535","listen,accept,resolve,connect";
+};
+grant codeBase "file:/${websystem_dir}${/}depends${/}-"{
+    permission java.security.AllPermission; 
+};
