@@ -8,4 +8,4 @@ after you setted up java policy strategy。
 
 require : JDK7+
 depends: 
-log4j-1.2.17.jar,slf4j-api-1.7.7.jar,slf4j-log4j12-1.7.6.jar
+all depends see in disrectory 'lib'
