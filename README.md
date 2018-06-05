@@ -14,6 +14,6 @@ all depends see in directory 'lib'.
 
 after compile all suffix '.java' file, run underline command:
  
- java -cp .<pathSeparator> <your classpath> com.entry.boot.BootLauncher
+ java -cp .'<pathSeparator> <your classpath>' com.entry.boot.BootLauncher
 
 just enjoy it.
